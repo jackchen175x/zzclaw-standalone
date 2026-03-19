@@ -3,7 +3,7 @@
 # Requires: Node.js 22+ installed on the build machine
 
 param(
-    [string]$ZZClawPkg = "@zzclaw/zzclaw",
+    [string]$ZZClawPkg = "@qingchencloud/openclaw-zh",
     [string]$OutputDir = "output",
     [string]$BuildDir = "build\win-x64",
     [switch]$SkipInstaller
@@ -71,7 +71,7 @@ Copy-Item "shims\zzclaw.cmd" "$BuildDir\zzclaw.cmd"
 
 # --- 6. Get version info ---
 Write-Host "`n=== Step 6: Reading version info ===" -ForegroundColor Cyan
-$pkgJsonPath = "$BuildDir\node_modules\@zzclaw\zzclaw\package.json"
+$pkgJsonPath = "$BuildDir\node_modules\@qingchencloud\openclaw-zh\package.json"
 if (-not (Test-Path $pkgJsonPath)) {
     # Fallback: try without scope
     $pkgJsonPath = "$BuildDir\node_modules\openclaw\package.json"

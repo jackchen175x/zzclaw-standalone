@@ -5,7 +5,7 @@
 
 set -euo pipefail
 
-ZZCLAW_PKG="${ZZCLAW_PKG:-@zzclaw/zzclaw}"
+ZZCLAW_PKG="${ZZCLAW_PKG:-@qingchencloud/openclaw-zh}"
 OUTPUT_DIR="${OUTPUT_DIR:-output}"
 SCRIPT_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 
@@ -93,11 +93,11 @@ chmod +x "$BUILD_DIR/zzclaw"
 # --- 6. Get version info ---
 echo ""
 echo "=== Step 6: Reading version info ==="
-PKG_JSON="$BUILD_DIR/node_modules/@zzclaw/zzclaw/package.json"
+PKG_JSON="$BUILD_DIR/node_modules/@qingchencloud/openclaw-zh/package.json"
 if [ ! -f "$PKG_JSON" ]; then
     PKG_JSON="$BUILD_DIR/node_modules/openclaw/package.json"
 fi
-VERSION="$(node -e "console.log(require('$PKG_JSON').version)")"
+VERSION="$(node -e "console.log(require('./$PKG_JSON').version)")"
 echo "周子 Claw version: $VERSION"
 
 cat > "$BUILD_DIR/VERSION" <<EOF
